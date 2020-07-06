@@ -1,0 +1,6 @@
+framework module Pods_Instagram_ObjC_Instagram_ObjCUITests {
+  umbrella header "Pods-Instagram-ObjC-Instagram-ObjCUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
