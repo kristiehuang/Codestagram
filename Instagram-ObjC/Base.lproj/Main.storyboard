@@ -36,10 +36,10 @@
                                 <rect key="frame" x="20" y="396" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iM5-Vy-B59">
-                                <rect key="frame" x="188" y="552" width="188" height="30"/>
+                                <rect key="frame" x="188" y="453" width="188" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -51,7 +51,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV1-Q7-STJ">
-                                <rect key="frame" x="84" y="549" width="64" height="33"/>
+                                <rect key="frame" x="84" y="438" width="64" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Sign Up">
@@ -92,21 +92,59 @@
             </objects>
             <point key="canvasLocation" x="1609" y="831"/>
         </scene>
-        <!--Item 2-->
+        <!--Camera View Controller-->
         <scene sceneID="nj3-tq-cm3">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="fTa-NP-Ymm" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="fTa-NP-Ymm" customClass="CameraViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zfg-5R-WMu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHp-Zf-PYv">
+                                <rect key="frame" x="55" y="234" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="takePictureButtonTapped:" destination="fTa-NP-Ymm" eventType="touchUpInside" id="xas-7k-Qsw"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="M0y-gW-L2U">
+                                <rect key="frame" x="20" y="71" width="147" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xR1-gJ-79e">
+                                <rect key="frame" x="175" y="71" width="219" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="aUd-ty-m05"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="qdR-p1-u9N"/>
+                    <navigationItem key="navigationItem" id="IJd-xU-pC5">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="vZl-S7-h0G">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eLZ-cH-Knr">
+                                <rect key="frame" x="302" y="13" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="shareButtonTapped:" destination="fTa-NP-Ymm" eventType="touchUpInside" id="NHI-6O-fnA"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="captionTextView" destination="xR1-gJ-79e" id="gM0-4W-Iiu"/>
+                        <outlet property="imageView" destination="M0y-gW-L2U" id="mRB-MJ-Q2H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5Q-gP-kBZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1610" y="105"/>
+            <point key="canvasLocation" x="2768" y="108"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="uJM-dF-tAe">
@@ -136,10 +174,10 @@
             </objects>
             <point key="canvasLocation" x="2456.521739130435" y="-1240.1785714285713"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="s7N-DM-NNq">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="AAC-60-smZ" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="AAC-60-smZ" customClass="FeedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ndN-wU-GBb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,7 +187,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="159" id="ei1-uS-cMF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="159" id="ei1-uS-cMF" customClass="PostTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="159"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ei1-uS-cMF" id="3jp-FK-eEp">
@@ -174,8 +212,18 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="camera-icon" style="plain" id="nGL-k5-kUa">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qEU-jD-QQS">
+                                <rect key="frame" x="364" y="10.5" width="30" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="camera-icon"/>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="feedTableView" destination="WTn-zY-w5k" id="gK5-wH-gx2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9px-Te-qNn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,8 +241,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="caO-H6-kEj" kind="relationship" relationship="viewControllers" id="j1c-hh-Yfk"/>
-                        <segue destination="fTa-NP-Ymm" kind="relationship" relationship="viewControllers" id="58r-1L-HhN"/>
-                        <segue destination="2Kq-NQ-PJ3" kind="relationship" relationship="viewControllers" id="aPG-m6-lSY"/>
+                        <segue destination="C4k-pB-FmD" kind="relationship" relationship="viewControllers" id="p0S-gj-yDu"/>
+                        <segue destination="2Kq-NQ-PJ3" kind="relationship" relationship="viewControllers" id="ctB-Ns-qxx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5J7-Sf-Ol8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -220,8 +268,29 @@
             </objects>
             <point key="canvasLocation" x="1609" y="-557"/>
         </scene>
+        <!--Item 2-->
+        <scene sceneID="VWf-uM-eLg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C4k-pB-FmD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 2" id="qdR-p1-u9N"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r6l-9J-Mng">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fTa-NP-Ymm" kind="relationship" relationship="rootViewController" id="yO6-N1-TNa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4eU-3M-B63" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2005.7971014492755" y="107.8125"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="camera-icon" width="30" height="23"/>
+        <image name="image_placeholder" width="375" height="375"/>
         <image name="instagram_gradient_wallpaper_by_jasonzigrino_da28exh-fullview" width="1024" height="576"/>
     </resources>
 </document>
