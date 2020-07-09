@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
+@property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
@@ -26,7 +27,7 @@
     self.usernameLabel.text = self.post.author.username;
     self.captionLabel.text = self.post.caption;
     self.timestampLabel.text = [NSString stringWithFormat:@"%@", self.post.createdAt]; //TODO: date reformat
-    
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%@ likes", self.post.likeCount];
 
     [self.post getImageWithCompletion:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (error != nil) {

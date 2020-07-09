@@ -27,7 +27,7 @@
     [super viewDidLoad];
     self.feedTableView.delegate = self;
     self.feedTableView.dataSource = self;
-    
+    self.feedTableView.rowHeight = UITableViewAutomaticDimension;
     [self getTimelinePosts];
 
     self.refreshControl = [UIRefreshControl new];
@@ -92,21 +92,11 @@
         }
     }];
     
-    
-//    PFFileObject *imageData = cell.post[@"imageFile"];
-//    [imageData getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-//        if (error != nil) {
-//            UIAlertController *alert = [Utils createAlertWithTitle:@"Network connection error." message:error.localizedDescription];
-//            [self presentViewController:alert animated:YES completion:nil];
-//        } else {
-//            cell.photoView.image = [UIImage imageWithData:data];
-//        }
-//    }];
     cell.usernameLabel.text = cell.post[@"author"][@"username"];
     cell.usernameCaptLabel.text = cell.post[@"author"][@"username"];
 
     cell.captionLabel.text = cell.post[@"caption"];
-    cell.timestampLabel.text = cell.post[@"createdAt"];
+    cell.timestampLabel.text = [NSString stringWithFormat:@"%@", cell.post.createdAt]; //TODO: reformat date
 
 
     return cell;
