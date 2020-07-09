@@ -18,6 +18,7 @@
 		3A13C4BF24B378FD00B04865 /* Instagram_ObjCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A13C4BE24B378FD00B04865 /* Instagram_ObjCUITests.m */; };
 		3A2047F024B51BED00EFB013 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2047EF24B51BED00EFB013 /* Utils.m */; };
 		3A2047F424B5204A00EFB013 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2047F324B5204A00EFB013 /* SettingsViewController.m */; };
+		3A57D8BA24B7ACEE007E1003 /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A57D8B924B7ACEE007E1003 /* PostDetailsViewController.m */; };
 		3AB6F8FE24B6279E00E95C06 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6F8FD24B6279E00E95C06 /* FeedViewController.m */; };
 		3AB6F90124B6283D00E95C06 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6F90024B6283D00E95C06 /* PostTableViewCell.m */; };
 		3AB6F90424B6295C00E95C06 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6F90324B6295C00E95C06 /* CameraViewController.m */; };
@@ -70,6 +71,8 @@
 		3A2047EF24B51BED00EFB013 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		3A2047F224B5204A00EFB013 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		3A2047F324B5204A00EFB013 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		3A57D8B824B7ACEE007E1003 /* PostDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostDetailsViewController.h; sourceTree = "<group>"; };
+		3A57D8B924B7ACEE007E1003 /* PostDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostDetailsViewController.m; sourceTree = "<group>"; };
 		3AB6F8FC24B6279E00E95C06 /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		3AB6F8FD24B6279E00E95C06 /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		3AB6F8FF24B6283D00E95C06 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				3AB6F8FD24B6279E00E95C06 /* FeedViewController.m */,
 				3AB6F90224B6295C00E95C06 /* CameraViewController.h */,
 				3AB6F90324B6295C00E95C06 /* CameraViewController.m */,
+				3A57D8B824B7ACEE007E1003 /* PostDetailsViewController.h */,
+				3A57D8B924B7ACEE007E1003 /* PostDetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 				3A13C49F24B378FB00B04865 /* LoginViewController.m in Sources */,
 				3A13C49924B378FB00B04865 /* AppDelegate.m in Sources */,
 				3AB6F8FE24B6279E00E95C06 /* FeedViewController.m in Sources */,
+				3A57D8BA24B7ACEE007E1003 /* PostDetailsViewController.m in Sources */,
 				3A13C4AA24B378FC00B04865 /* main.m in Sources */,
 				3A2047F424B5204A00EFB013 /* SettingsViewController.m in Sources */,
 				3AB6F90724B630E200E95C06 /* Post.m in Sources */,
