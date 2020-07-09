@@ -19,33 +19,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "46C4F6D5-0566-4A19-B6BB-60D240FDAA5A"
+            uuid = "97ED5F56-990A-4801-9A29-836BAB6039F9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instagram-ObjC/View Controllers/FeedViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-prepareForSegue:sender:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "260A8534-79BA-4A56-A8B5-3508196CCCB1"
+            uuid = "A2B6D774-A825-4959-9831-4DEE299BE646"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instagram-ObjC/View Controllers/FeedViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-prepareForSegue:sender:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F99E54D1-1281-45F2-87CB-DCFFCF1BB50D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Instagram-ObjC/View Controllers/FeedViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "FeedViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

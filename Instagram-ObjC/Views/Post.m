@@ -8,6 +8,7 @@
 
 #import "Post.h"
 #import <Parse/Parse.h>
+#import "Utils.h"
 
 @implementation Post
 
@@ -18,10 +19,14 @@
 @dynamic imageFile;
 @dynamic likeCount;
 @dynamic commentCount;
-
+@dynamic photo;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
+}
+
+- (void)getImageWithCompletion:(void(^)(NSData * _Nullable data, NSError * _Nullable error))completion {
+    [self.imageFile getDataInBackgroundWithBlock:completion];
 }
 
 + (void) postUserImage:(UIImage *)image withCaption:(NSString *)caption withCompletion:(PFBooleanResultBlock)completion {

@@ -7,15 +7,35 @@
 //
 
 #import "PostDetailsViewController.h"
+#import "Utils.h"
 
 @interface PostDetailsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *photoView;
 
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @end
 
 @implementation PostDetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.usernameLabel.text = self.post.author.username;
+    self.captionLabel.text = self.post.caption;
+    self.timestampLabel.text = [NSString stringWithFormat:@"%@", self.post.createdAt]; //TODO: date reformat
+    
+
+    [self.post getImageWithCompletion:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (error != nil) {
+            UIAlertController *alert = [Utils createAlertWithTitle:@"Network connection error." message:error.localizedDescription];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            self.photoView.image = [UIImage imageWithData:data];
+        }
+    }];
     // Do any additional setup after loading the view.
 }
 

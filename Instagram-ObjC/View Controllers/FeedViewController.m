@@ -7,14 +7,18 @@
 //
 
 #import "FeedViewController.h"
+#import "Post.h"
 #import "PostTableViewCell.h"
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "Utils.h"
+#import "PostDetailsViewController.h"
+
 
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *feedTableView;
-@property (nonatomic, strong) NSArray *posts;
+@property (nonatomic, strong) NSArray<Post *> *posts;
+@property (nonatomic, strong) UIRefreshControl * refreshControl;
 @end
 
 @implementation FeedViewController
@@ -23,7 +27,13 @@
     [super viewDidLoad];
     self.feedTableView.delegate = self;
     self.feedTableView.dataSource = self;
+    
     [self getTimelinePosts];
+
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(getTimelinePosts) forControlEvents:UIControlEventValueChanged];
+    [self.feedTableView insertSubview:self.refreshControl atIndex:0];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -31,22 +41,32 @@
     [self getTimelinePosts];
 
 }
-/*
+
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [self performSegueWithIdentifier:@"detailsSegue" sender:nil];
+//
+//}
+
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     if ([[segue identifier] isEqualToString:@"detailsSegue"]) {
+         PostDetailsViewController *detailsVC = [segue destinationViewController];
+         Post *thisPost = [sender post];
+         detailsVC.post = thisPost;
+     }
+     
+     // Get the new view controller using [segue destinationViewController].
+     // Pass the selected object to the new view controller.
+ }
+ 
 - (void)getTimelinePosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Post" predicate:nil];
     query.limit = 20;
     [query orderByDescending:@"updatedAt"]; //sorts by date string not by actual date lol
     [query includeKey:@"author"];
     [query includeKey:@"imageFile"];
+    [query includeKey:@"createdAt"];
+
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (error != nil) {
             UIAlertController *alert = [Utils createAlertWithTitle:@"Network connection error." message:error.localizedDescription];
@@ -55,14 +75,15 @@
             self.posts = objects;
             [self.feedTableView reloadData];
         }
+        [self.refreshControl endRefreshing];
     }];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostTableViewCell *cell = [self.feedTableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
-    NSDictionary *post = self.posts[indexPath.row];
-    PFFileObject *imageData = post[@"imageFile"];
-    [imageData getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+    cell.post = self.posts[indexPath.row];
+    
+    [cell.post getImageWithCompletion:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (error != nil) {
             UIAlertController *alert = [Utils createAlertWithTitle:@"Network connection error." message:error.localizedDescription];
             [self presentViewController:alert animated:YES completion:nil];
@@ -70,11 +91,22 @@
             cell.photoView.image = [UIImage imageWithData:data];
         }
     }];
-    cell.usernameLabel.text = post[@"author"][@"username"];
-    cell.usernameCaptLabel.text = post[@"author"][@"username"];
+    
+    
+//    PFFileObject *imageData = cell.post[@"imageFile"];
+//    [imageData getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+//        if (error != nil) {
+//            UIAlertController *alert = [Utils createAlertWithTitle:@"Network connection error." message:error.localizedDescription];
+//            [self presentViewController:alert animated:YES completion:nil];
+//        } else {
+//            cell.photoView.image = [UIImage imageWithData:data];
+//        }
+//    }];
+    cell.usernameLabel.text = cell.post[@"author"][@"username"];
+    cell.usernameCaptLabel.text = cell.post[@"author"][@"username"];
 
-    cell.captionLabel.text = post[@"caption"];
-    cell.timestampLabel.text = post[@"createdAt"];
+    cell.captionLabel.text = cell.post[@"caption"];
+    cell.timestampLabel.text = cell.post[@"createdAt"];
 
 
     return cell;
