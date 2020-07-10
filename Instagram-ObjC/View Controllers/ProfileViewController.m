@@ -27,13 +27,22 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
 
+
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
     CGFloat postsPerRow = 3;
     CGFloat viewWidth = self.collectionView.frame.size.width;
     layout.itemSize = CGSizeMake(viewWidth / postsPerRow, viewWidth / postsPerRow);
+
     User *user = [User currentUser];
+
     [self getCurrentUserPosts];
-    
+    self.bioLabel.text = (user.bio == nil) ? @"This user hasn't set a bio yet.": user.bio;
+
     self.usernameLabel.text = user.username;
     if (user.profilePicFile == nil) {
         self.profilePicView.image = [UIImage imageNamed:@"image_placeholder"];
@@ -46,7 +55,6 @@
             }
         }];
     }
-    self.bioLabel.text = (user.bio == nil) ? @"": user.bio;
 }
 
 - (void)getCurrentUserPosts {

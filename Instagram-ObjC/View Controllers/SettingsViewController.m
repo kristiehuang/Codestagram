@@ -14,7 +14,8 @@
 #import <Parse/Parse.h>
 #import "User.h"
 
-@interface SettingsViewController ()
+@interface SettingsViewController () <UIImagePickerControllerDelegate>
+@property (nonatomic, strong) UIImagePickerController *imagePickerVC;
 
 @end
 
@@ -22,6 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.imagePickerVC = [UIImagePickerController new];
+    self.imagePickerVC.allowsEditing = self;
+    self.imagePickerVC.delegate = self;
     // Do any additional setup after loading the view.
 }
 - (IBAction)logoutButtonTapped:(id)sender {
@@ -38,8 +42,27 @@
 }
 
 - (IBAction)updateProfilePicTapped:(id)sender {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        //camera
+        self.imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        self.imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    [self presentViewController:self.imagePickerVC animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
     User *currentUser = [User currentUser];
-    
+    NSData *imageData = UIImageJPEGRepresentation(info[UIImagePickerControllerEditedImage], 1);
+    currentUser.profilePicFile = [PFFileObject fileObjectWithData:imageData];
+    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error == nil) {
+            //sdfs
+        } else {
+            NSLog(@"prof pic update couldnt be saved");
+        }
+    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
