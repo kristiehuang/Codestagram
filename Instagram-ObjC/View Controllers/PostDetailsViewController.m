@@ -29,7 +29,7 @@
     self.timestampLabel.text = [NSString stringWithFormat:@"%@", self.post.createdAt]; //TODO: date reformat
     self.likeCountLabel.text = [NSString stringWithFormat:@"%@ likes", self.post.likeCount];
 
-    [self.post getImageWithCompletion:^(NSData * _Nullable data, NSError * _Nullable error) {
+    [Utils getImageWithFile:self.post.imageFile WithCompletion:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (error != nil) {
             UIAlertController *alert = [Utils createAlertWithTitle:@"Network connection error." message:error.localizedDescription];
             [self presentViewController:alert animated:YES completion:nil];
@@ -37,6 +37,7 @@
             self.photoView.image = [UIImage imageWithData:data];
         }
     }];
+
     // Do any additional setup after loading the view.
 }
 

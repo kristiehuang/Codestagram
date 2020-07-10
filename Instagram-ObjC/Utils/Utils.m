@@ -8,6 +8,7 @@
 
 #import "Utils.h"
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @implementation Utils
 
@@ -23,6 +24,10 @@
     [alert addAction:cancel];
     [alert addAction:ok];
     return alert;
+}
+
++ (void)getImageWithFile:(PFFileObject *)imageFile WithCompletion:(void(^)(NSData * _Nullable data, NSError * _Nullable error))completion {
+    [imageFile getDataInBackgroundWithBlock:completion];
 }
 
 @end

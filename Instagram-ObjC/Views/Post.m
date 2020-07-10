@@ -25,9 +25,7 @@
     return @"Post";
 }
 
-- (void)getImageWithCompletion:(void(^)(NSData * _Nullable data, NSError * _Nullable error))completion {
-    [self.imageFile getDataInBackgroundWithBlock:completion];
-}
+
 
 + (void) postUserImage:(UIImage *)image withCaption:(NSString *)caption withCompletion:(PFBooleanResultBlock)completion {
     Post *newPost = [Post new];

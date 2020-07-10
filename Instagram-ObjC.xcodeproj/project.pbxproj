@@ -23,6 +23,9 @@
 		3AB6F90124B6283D00E95C06 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6F90024B6283D00E95C06 /* PostTableViewCell.m */; };
 		3AB6F90424B6295C00E95C06 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6F90324B6295C00E95C06 /* CameraViewController.m */; };
 		3AB6F90724B630E200E95C06 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6F90624B630E200E95C06 /* Post.m */; };
+		3AEDF27624B91100000D56CB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEDF27524B910FF000D56CB /* ProfileViewController.m */; };
+		3AEDF27D24B9128F000D56CB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEDF27C24B9128F000D56CB /* User.m */; };
+		3AEDF28024B91387000D56CB /* PostCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEDF27F24B91387000D56CB /* PostCollectionViewCell.m */; };
 		9ADCB5E6DE59F2B6EA8C3073 /* Pods_Instagram_ObjCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811E5F626C9876EB13B15C19 /* Pods_Instagram_ObjCTests.framework */; };
 		E04F6AA8A94484186608D975 /* Pods_Instagram_ObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821F281073ECD9425295E266 /* Pods_Instagram_ObjC.framework */; };
 		E73335D5253C164C8580841B /* Pods_Instagram_ObjC_Instagram_ObjCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD94FCBB4FF53A8D79A8B44 /* Pods_Instagram_ObjC_Instagram_ObjCUITests.framework */; };
@@ -81,6 +84,12 @@
 		3AB6F90324B6295C00E95C06 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		3AB6F90524B630E200E95C06 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		3AB6F90624B630E200E95C06 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		3AEDF27424B910FF000D56CB /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		3AEDF27524B910FF000D56CB /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		3AEDF27B24B9128F000D56CB /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3AEDF27C24B9128F000D56CB /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3AEDF27E24B91387000D56CB /* PostCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCollectionViewCell.h; sourceTree = "<group>"; };
+		3AEDF27F24B91387000D56CB /* PostCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCollectionViewCell.m; sourceTree = "<group>"; };
 		452020A08104DCB2390AD15F /* Pods-Instagram-ObjCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram-ObjCTests.release.xcconfig"; path = "Target Support Files/Pods-Instagram-ObjCTests/Pods-Instagram-ObjCTests.release.xcconfig"; sourceTree = "<group>"; };
 		6FF336F6E3A75A643147C33B /* Pods-Instagram-ObjC-Instagram-ObjCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram-ObjC-Instagram-ObjCUITests.release.xcconfig"; path = "Target Support Files/Pods-Instagram-ObjC-Instagram-ObjCUITests/Pods-Instagram-ObjC-Instagram-ObjCUITests.release.xcconfig"; sourceTree = "<group>"; };
 		811E5F626C9876EB13B15C19 /* Pods_Instagram_ObjCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram_ObjCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +151,7 @@
 		3A13C49624B378FB00B04865 /* Instagram-ObjC */ = {
 			isa = PBXGroup;
 			children = (
+				3AEDF27724B9125E000D56CB /* Models */,
 				3A2047F124B51BF200EFB013 /* Utils */,
 				3A2047ED24B5196A00EFB013 /* Views */,
 				3A2047EC24B5196000EFB013 /* View Controllers */,
@@ -189,6 +199,8 @@
 				3AB6F90324B6295C00E95C06 /* CameraViewController.m */,
 				3A57D8B824B7ACEE007E1003 /* PostDetailsViewController.h */,
 				3A57D8B924B7ACEE007E1003 /* PostDetailsViewController.m */,
+				3AEDF27424B910FF000D56CB /* ProfileViewController.h */,
+				3AEDF27524B910FF000D56CB /* ProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -200,6 +212,8 @@
 				3AB6F90024B6283D00E95C06 /* PostTableViewCell.m */,
 				3AB6F90524B630E200E95C06 /* Post.h */,
 				3AB6F90624B630E200E95C06 /* Post.m */,
+				3AEDF27E24B91387000D56CB /* PostCollectionViewCell.h */,
+				3AEDF27F24B91387000D56CB /* PostCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +225,15 @@
 				3A2047EF24B51BED00EFB013 /* Utils.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		3AEDF27724B9125E000D56CB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3AEDF27B24B9128F000D56CB /* User.h */,
+				3AEDF27C24B9128F000D56CB /* User.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B8334E6C94C6516DB021CBE3 /* Frameworks */ = {
@@ -474,16 +497,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AEDF27D24B9128F000D56CB /* User.m in Sources */,
 				3A13C49F24B378FB00B04865 /* LoginViewController.m in Sources */,
 				3A13C49924B378FB00B04865 /* AppDelegate.m in Sources */,
 				3AB6F8FE24B6279E00E95C06 /* FeedViewController.m in Sources */,
 				3A57D8BA24B7ACEE007E1003 /* PostDetailsViewController.m in Sources */,
 				3A13C4AA24B378FC00B04865 /* main.m in Sources */,
+				3AEDF28024B91387000D56CB /* PostCollectionViewCell.m in Sources */,
 				3A2047F424B5204A00EFB013 /* SettingsViewController.m in Sources */,
 				3AB6F90724B630E200E95C06 /* Post.m in Sources */,
 				3A2047F024B51BED00EFB013 /* Utils.m in Sources */,
 				3AB6F90424B6295C00E95C06 /* CameraViewController.m in Sources */,
 				3A13C49C24B378FB00B04865 /* SceneDelegate.m in Sources */,
+				3AEDF27624B91100000D56CB /* ProfileViewController.m in Sources */,
 				3AB6F90124B6283D00E95C06 /* PostTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

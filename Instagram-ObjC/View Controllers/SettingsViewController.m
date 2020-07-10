@@ -12,6 +12,7 @@
 #import "Utils.h"
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
+#import "User.h"
 
 @interface SettingsViewController ()
 
@@ -34,6 +35,11 @@
             myDelegate.window.rootViewController = loginVC;
         }
     }];
+}
+
+- (IBAction)updateProfilePicTapped:(id)sender {
+    User *currentUser = [User currentUser];
+    
 }
 
 /*

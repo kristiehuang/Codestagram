@@ -83,8 +83,8 @@
     PostTableViewCell *cell = [self.feedTableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
     cell.post = self.posts[indexPath.row];
     
-    [cell.post getImageWithCompletion:^(NSData * _Nullable data, NSError * _Nullable error) {
-        if (error != nil) {
+    [Utils getImageWithFile:cell.post.imageFile WithCompletion:^(NSData * _Nullable data, NSError * _Nullable error) {
+      if (error != nil) {
             UIAlertController *alert = [Utils createAlertWithTitle:@"Network connection error." message:error.localizedDescription];
             [self presentViewController:alert animated:YES completion:nil];
         } else {
